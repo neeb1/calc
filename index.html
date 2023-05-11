@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)file:///Users/user/Desktop/bricks%20counter%20.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <title>Brick Calculation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 10px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    h2 {
+      text-size-adjust: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-top: 12px , 0px , 0px , 12px;
+      background-color: #288bee;
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #131413;
+    }
+
+    #result {
+      margin-top: 12px;
+      padding: 8px;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body background="./Brick Calculation_files/zimi.jpeg">
+  <div class="container">
+    <h1>Brick Calculation</h1>
+    <h5>Developed by Muneeb Ahmad <br>contact: neeb358@gmail.com</h5>
+
+
+    <label for="wallHeight">Wall Height (in feet):</label>
+    <input type="number" id="wallHeight">
+
+    <label for="wallWidth">Wall Width (in feet):</label>
+    <input type="number" id="wallWidth">
+
+    <button onclick="calculateBricks()">Calculate</button>
+
+    <p id="result"></p>
+
+    <script>
+      function calculateBricks() {
+        const wallHeightInput = document.getElementById("wallHeight");
+        const wallWidthInput = document.getElementById("wallWidth");
+        const resultElement = document.getElementById("result");
+
+        const wallHeightFeet = parseInt(wallHeightInput.value);
+        const wallWidthFeet = parseInt(wallWidthInput.value);
+
+        const inchesPerFoot = 12;
+        const wallHeightInches = wallHeightFeet * inchesPerFoot;
+        const wallWidthInches = wallWidthFeet * inchesPerFoot;
+
+        const brickHeight = 3.5; // in inches
+        const brickWidth = 4.5; // in inches
+
+        const rowCount = Math.ceil(wallHeightInches / brickHeight);
+        const columnCount = Math.ceil(wallWidthInches / brickWidth);
+        const totalBricks = rowCount * columnCount;
+
+        resultElement.textContent = "Total number of bricks needed in 9 inches wall is: " + totalBricks;
+      }
+      
+    </script>
+  </div>
+
+
+
+</body>
+</html>
